@@ -15,7 +15,7 @@ An AI-powered grading system for medical student OSCE post-encounter notes, usin
 ### **1️⃣ Install Dependencies**  
 You'll need **Python 3.8+** and an OpenAI API key.  
 
-#### **Mac/Linux**  
+#### **Windows/Mac/Linux**  
 ```sh
 git clone https://github.com/YOUR_GITHUB/osce-grader.git
 cd osce-grader
