@@ -20,3 +20,14 @@ You'll need **Python 3.8+** and an OpenAI API key.
 git clone https://github.com/YOUR_GITHUB/osce-grader.git
 cd osce-grader
 pip install -r requirements.txt
+
+---
+
+Set Up Your OpenAI API Key
+Sign up at OpenAI
+Go to API Keys → Generate a new key
+Save your key in a .env file or api_key.txt
+sh
+Copy
+Edit
+echo "YOUR_API_KEY" > api_key.txt
