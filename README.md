@@ -7,10 +7,10 @@ Created by the LLM Team in as part of the [NBME SEEF Fellowship](https://www.nbm
 - Candace Pau, MD - Kaiser Permanente Bernard J. Tyson School of Medicine
 - Nayef Chahin, MD - Virginia Commonwealth University School of Medicine
 
-## **💬 Try the OSCE Grader Custom GPT!**  
-For an interactive setup experience, try our **Custom GPT**, which walks you through installation, prompt customization, and troubleshooting.  (Note: requires ChatGPT Plus)
+## **💬 Try the OSCE Grader Setup Assistant Custom GPT!**  
+For an interactive setup experience, try our **Custom GPT**, which walks you through installation, prompt customization, and troubleshooting.  (Note: Requires ChatGPT Plus)
 
-🔗 **[Click here to access the OSCE Grader GPT](https://chatgpt.com/g/g-679e835f52e88191be7e07bb7233e52e-osce-grader-setup-assistant)**  
+🔗 **[Click here to access the OSCE Grader Setup Assistant](https://chatgpt.com/g/g-679e835f52e88191be7e07bb7233e52e-osce-grader-setup-assistant)**  
 
 ## ✨ Features  
 ✅ Supports **Excel, CSV, and text-based** student notes  
