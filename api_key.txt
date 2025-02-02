@@ -1,0 +1,1 @@
+This file should ONLY contain the API key and nothing else. no brackets, no ' or "s. Just the API key. We recommend highlighting the text in this file, deleting it, and pasting the key directly in. 
