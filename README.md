@@ -2,7 +2,7 @@
 An AI-powered grading system for medical student OSCE post-encounter notes, using GPT models to automate grading and provide structured feedback.  
 
 Created by the LLM Team in as part of the [NBME SEEF Fellowship](https://www.nbme.org/contributions/assessment/seef):
-- Christopher J. Nash, MD, EdM - Duke Unviersity School of Medicine
+- Christopher J. Nash, MD, EdM - Duke University School of Medicine
 - Tama Thé, MD - University of Kentucky Medical School
 - Candace Pau, MD - Kaiser Permanente Bernard J. Tyson School of Medicine
 - Nayef Chahin, MD - Virginia Commonwealth University School of Medicine
