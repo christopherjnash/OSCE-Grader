@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ---
 
 ### **2️⃣ Configure the Grader**  
-The **grading prompt, model selection, API key location, and default file paths** are managed in `config.py`.  
+The **grading prompt, model selection, API key location, and default file paths** are managed in `scripts\config.py`.  
 Modify `config.py` as needed to customize the grading behavior for your institution.  
 Available models and pricing are available in the [OpenAI API Documentation](https://platform.openai.com/docs/pricing)
 
