@@ -1,0 +1,6 @@
+openai
+pandas
+numpy
+argparse
+python-docx
+pdfminer.six
