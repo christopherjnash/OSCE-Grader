@@ -4,7 +4,7 @@ An AI-powered grading system for medical student OSCE post-encounter notes, usin
 ## ✨ Features  
 ✅ Supports **Excel, CSV, and text-based** student notes  
 ✅ Works with **structured rubrics** (Excel, CSV)  
-✅ Uses **ChatGPT (or other LLMs)** to generate **detailed, section-by-section grading**  
+✅ Uses **ChatGPT** to generate **detailed, section-by-section grading**  
 ✅ Customizable **grading prompts** via `config.py`  
 ✅ **Automatic logging** for debugging and analysis  
 ✅ **Easy setup** with Python & OpenAI API  
