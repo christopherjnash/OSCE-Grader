@@ -63,6 +63,7 @@ python scripts/grader.py --rubric examples/sample_rubric.xlsx --notes examples/s
 | `--output` | OPTIONAL: The top_p setting for the model (default: 1.0) |  
 
 ⚠️ **Note:** Changing from the 4o models to the newer o1 or o3 models is possible but requires changing the prompt structure in your script. If you decide to do this, we recommend reading through the documentation and the scripts to understand the changes before asking ChatGPT to help you or adjusting the code yourself.  
+
 ---
 
 ## 🔄 Converting a Rubric File  
