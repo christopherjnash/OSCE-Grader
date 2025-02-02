@@ -1,24 +1,14 @@
-# OSCE Grader Setup 🚀  
+# OSCE Grader Setup Guide 🚀  
 An AI-powered grading system for medical student OSCE post-encounter notes, using GPT models to automate grading and provide structured feedback.  
-
-Created by the LLM Team in as part of the [NBME SEEF Fellowship](https://www.nbme.org/contributions/assessment/seef):
-- Christopher J. Nash, MD, EdM - Duke University School of Medicine
-- Tama Thé, MD - University of Kentucky Medical School
-- Candace Pau, MD - Kaiser Permanente Bernard J. Tyson School of Medicine
-- Nayef Chahin, MD - Virginia Commonwealth University School of Medicine
-
-## **💬 Try the OSCE Grader Setup Assistant Custom GPT!**  
-For an interactive setup experience, try our **Custom GPT**, which walks you through installation, prompt customization, and troubleshooting.  (Note: Requires ChatGPT Plus)
-
-🔗 **[Click here to access the OSCE Grader Setup Assistant](https://chatgpt.com/g/g-679e835f52e88191be7e07bb7233e52e-osce-grader-setup-assistant)**  
 
 ## ✨ Features  
 ✅ Supports **Excel, CSV, and text-based** student notes  
 ✅ Works with **structured rubrics** (Excel, CSV)  
 ✅ Uses **ChatGPT (or other LLMs)** to generate **detailed, section-by-section grading**  
-✅ Customizable **grading prompts** tailored to your institution  
+✅ Customizable **grading prompts** via `config.py`  
 ✅ **Automatic logging** for debugging and analysis  
 ✅ **Easy setup** with Python & OpenAI API  
+✅ Includes **convert_rubric.py** to assist in converting rubric files (PDF/DOCX to structured formats)  
 
 ---
 
@@ -42,20 +32,31 @@ pip install -r requirements.txt
 
 ---
 
-### **2️⃣ Set Up Your OpenAI API Key**  
-1. Sign up at **[OpenAI](https://platform.openai.com/signup/)**  
-2. Go to **API Keys** → Generate a new key  
-3. Save your key in a `.env` file or `api_key.txt`  
-   ```sh  
-   echo "YOUR_API_KEY" > api_key.txt  
-   ```
+### **2️⃣ Configure the Grader**  
+The **grading prompt, model selection, API key location, and default file paths** are managed in `config.py`.  
+Modify `config.py` as needed to customize the grading behavior for your institution.  
+
+Example of `config.py` settings:  
+```python  
+MODEL = "gpt-4o-mini"
+DEFAULT_RUBRIC_PATH = "examples/sample_rubric.xlsx"
+DEFAULT_NOTES_PATH = "examples/sample_notes.xlsx"
+DEFAULT_OUTPUT_PATH = "results.xlsx"
+```
 
 ---
 
-### **3️⃣ Run the OSCE Grader**  
+### **3️⃣ Set Up Your OpenAI API Key**  
+1. Sign up at **[OpenAI](https://platform.openai.com/signup/)**  
+2. Go to **API Keys** → Generate a new key  
+3. Save your key in a file named `api_key.txt` in the root folder.  
+
+---
+
+### **4️⃣ Run the OSCE Grader**  
 #### **Basic Usage**  
 ```sh  
-python grader.py --rubric standardrubric.xlsx --notes student_notes.xlsx --output results.xlsx  
+python scripts/grader.py --rubric examples/sample_rubric.xlsx --notes examples/sample_notes.xlsx --output results.xlsx  
 ```
 
 #### **Optional Parameters**  
@@ -67,51 +68,50 @@ python grader.py --rubric standardrubric.xlsx --notes student_notes.xlsx --outpu
 
 ---
 
+## 🔄 Converting a Rubric File  
+If your rubric is in **PDF or DOCX**, you can convert it to a structured format (Excel or CSV) using `convert_rubric.py`.  
+
+**Example Usage:**  
+```sh  
+python scripts/convert_rubric.py examples/FlankPainRubric.pdf examples/sample_rubric.xlsx  
+```
+
+⚠️ **Note:** `convert_rubric.py` is a **starting point** for rubric conversion and may require manual adjustments based on formatting inconsistencies.  
+
+---
+
 ## ⚙️ **Customizing the Grading Prompt**  
 - The script **grades section-by-section** for higher accuracy.  
 - You can modify the **grading prompt** in `config.py` without editing JSON.  
 
 Example:  
-```plaintext  
-SYSTEM MESSAGE:  
-"I am a medical educator, and I need your help grading an assignment.  
-My students recently completed an OSCE post-encounter note based on a standardized patient interview.  
-I have provided a structured scoring rubric with expected responses.  
-The rubric is broken into individual sections. To ensure accuracy, please score each section separately.  
-For each section, provide a detailed explanation of your reasoning before giving a final score.  
-At the end of your evaluation, place the final score as an integer on a new line with no markup."
+```python  
+GRADING_PROMPT = "I am a medical educator, and I need your help grading an assignment... (your modified prompt)"
 ```
-- **Modify this text** in `config.py` if your institution requires a different approach.
 
 ---
 
-## 📚 Troubleshooting  
+## 🛠 Troubleshooting  
 ### **💡 Common Issues & Fixes**  
 🔹 **API Key Not Found**  
-👉 Make sure `api_key.txt` exists or export your key:  
-```sh  
-export OPENAI_API_KEY="your-key-here"  
-```
+👉 Ensure `api_key.txt` exists in the root folder.  
 
 🔹 **Unexpected Scores or Formatting Issues**  
-👉 Enable debugging mode:  
-```sh  
-python grader.py --debug  
-```
+👉 Modify the grading prompt in `config.py` to better fit your rubric.  
 
 🔹 **Invalid File Format**  
-👉 Convert Word/PDF rubrics to Excel/CSV using the `convert_rubric.py` script.  
+👉 Convert Word/PDF rubrics to Excel/CSV using `convert_rubric.py`.  
 
 ---
 
-## 📠 Resources  
+## 🔗 Resources  
 📌 **GitHub Repository:** [OSCE-Grader](https://github.com/christopherjnash/OSCE-Grader)  
 📌 **OpenAI API Docs:** [OpenAI](https://platform.openai.com/docs/)  
 📌 **Troubleshooting Guide:** See `docs/troubleshooting.md`  
 
 ---
 
-## 💜 License  
+## 📜 License  
 **MIT License** – Free to use and modify.  
 See [`LICENSE`](LICENSE) for details.  
 
@@ -121,4 +121,3 @@ See [`LICENSE`](LICENSE) for details.
 Contributions are welcome! If you improve the script or add new features, submit a **pull request** or open an **issue**.  
 
 🚀 **Happy Grading!**
-
