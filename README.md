@@ -16,15 +16,8 @@ An AI-powered grading system for medical student OSCE post-encounter notes, usin
 ### **1️⃣ Install Dependencies**  
 You'll need **Python 3.8+** and an OpenAI API key.  
 
-#### **Mac/Linux**  
+#### **Terminal**  
 ```sh  
-git clone https://github.com/christopherjnash/OSCE-Grader.git  
-cd OSCE-Grader  
-pip install -r requirements.txt  
-```
-
-#### **Windows (PowerShell)**  
-```powershell  
 git clone https://github.com/christopherjnash/OSCE-Grader.git  
 cd OSCE-Grader  
 pip install -r requirements.txt  
@@ -35,6 +28,7 @@ pip install -r requirements.txt
 ### **2️⃣ Configure the Grader**  
 The **grading prompt, model selection, API key location, and default file paths** are managed in `config.py`.  
 Modify `config.py` as needed to customize the grading behavior for your institution.  
+Available models and pricing are available in the [OpenAI API Documentation](https://platform.openai.com/docs/pricing)
 
 Example of `config.py` settings:  
 ```python  
@@ -59,13 +53,16 @@ DEFAULT_OUTPUT_PATH = "results.xlsx"
 python scripts/grader.py --rubric examples/sample_rubric.xlsx --notes examples/sample_notes.xlsx --output results.xlsx  
 ```
 
-#### **Optional Parameters**  
+#### **Script Parameters**  
 | Flag | Description |  
 |------|------------|  
 | `--rubric` | Path to the grading rubric (Excel/CSV) |  
 | `--notes` | Path to student notes (Excel/CSV) |  
 | `--output` | Name of the output file (Excel) |  
+| `--temperature` | OPTIONAL: The temperature setting for the model (default: 0.5) |  
+| `--output` | OPTIONAL: The top_p setting for the model (default: 1.0) |  
 
+⚠️ **Note:** Changing from the 4o models to the newer o1 or o3 models is possible but requires changing the prompt structure in your script. If you decide to do this, we recommend reading through the documentation and the scripts to understand the changes before asking ChatGPT to help you or adjusting the code yourself.  
 ---
 
 ## 🔄 Converting a Rubric File  
@@ -82,7 +79,7 @@ python scripts/convert_rubric.py examples/FlankPainRubric.pdf examples/sample_ru
 
 ## ⚙️ **Customizing the Grading Prompt**  
 - The script **grades section-by-section** for higher accuracy.  
-- You can modify the **grading prompt** in `config.py` without editing JSON.  
+- You can modify the **grading prompt** in `config.py` without editing the script directly.  
 
 Example:  
 ```python  
